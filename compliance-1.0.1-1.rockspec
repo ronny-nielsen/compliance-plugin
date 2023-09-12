@@ -1,5 +1,5 @@
-package = "compliance-plugin"
-version = "1.0.1-1"
+package = "compliance"
+version = "1.0.2-1"
 
 source = {
     url = "*** please add URL for source tarball, zip or repository here ***"
