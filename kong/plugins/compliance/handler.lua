@@ -35,7 +35,7 @@ function generateToken(conf)
     return response;
 end
 
-function sendRequest(conf){
+function sendRequest(conf)
   kong.log.debug("Sending request to compliance")
   local headers = kong.request.get_headers()
   local fullpath = kong.request.get_path_with_query()
@@ -78,9 +78,9 @@ function sendRequest(conf){
   end
 
   return response
-}
+end
 
-function sendResponse(conf){
+function sendResponse(conf)
   kong.log.debug("Sending response to compliance")
   local headers = kong.request.get_headers()
   local path = kong.request.get_path()
@@ -122,7 +122,7 @@ function sendResponse(conf){
   end
 
   return response
-}
+end
 
 function Compliance:init_worker()
     -- Implement logic for the init_worker phase here (http/stream)
@@ -151,41 +151,41 @@ function Compliance:access(config)
     sendRequest(config)
 end
 function Compliance:ws_handshake(config)
-    -- Implement logic for the WebSocket handshake here
-    kong.log("ws_handshake")
-  end
-  
-  function CustomHandler:header_filter(config)
-    -- Implement logic for the header_filter phase here (http)
-    kong.log("header_filter")
-  end
-  
-  function Compliance:ws_client_frame(config)
-    -- Implement logic for WebSocket client messages here
-    kong.log("ws_client_frame")
-  end
-  
-  function Compliance:ws_upstream_frame(config)
-    -- Implement logic for WebSocket upstream messages here
-    kong.log("ws_upstream_frame")
-  end
-  
-  function Compliance:body_filter(config)
-    -- Implement logic for the body_filter phase here (http)
-    kong.log("body_filter")
-    responseBody = kong.response.get_raw_body()
-    kong.log.debug(responseBody)
-  end
-  
-  function Compliance:log(config)
-    -- Implement logic for the log phase here (http/stream)
-    kong.log("log")
-    sendResponse(config)
-  end
-  
-  function Compliance:ws_close(config)
-    -- Implement logic for WebSocket post-connection here
-    kong.log("ws_close")
-  end
+  -- Implement logic for the WebSocket handshake here
+  kong.log("ws_handshake")
+end
 
-  return Compliance
+function Compliance:header_filter(config)
+  -- Implement logic for the header_filter phase here (http)
+  kong.log("header_filter")
+end
+
+function Compliance:ws_client_frame(config)
+  -- Implement logic for WebSocket client messages here
+  kong.log("ws_client_frame")
+end
+
+function Compliance:ws_upstream_frame(config)
+  -- Implement logic for WebSocket upstream messages here
+  kong.log("ws_upstream_frame")
+end
+
+function Compliance:body_filter(config)
+  -- Implement logic for the body_filter phase here (http)
+  kong.log("body_filter")
+  responseBody = kong.response.get_raw_body()
+  kong.log.debug(responseBody)
+end
+
+function Compliance:log(config)
+  -- Implement logic for the log phase here (http/stream)
+  kong.log("log")
+  sendResponse(config)
+end
+
+function Compliance:ws_close(config)
+  -- Implement logic for WebSocket post-connection here
+  kong.log("ws_close")
+end
+
+return Compliance
