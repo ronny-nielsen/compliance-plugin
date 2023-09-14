@@ -18,7 +18,7 @@ dependencies = {
 build = {
     type = "builtin",
     modules = {
-        handler = "kong/plugin/handler.lua",
-        schema = "kong/plugin/schema.lua"
+        handler = "kong/plugins/compliance/handler.lua",
+        schema = "kong/plugins/compliance/schema.lua"
     }
 }

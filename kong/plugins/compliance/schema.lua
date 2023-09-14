@@ -4,13 +4,13 @@ local plugin_name = "compliance"
 local schema = {
   name = plugin_name,
   fields = {
-    { consumer = typedefs.no_consumer }
+    { consumer = typedefs.no_consumer },
     { protocols = typedefs.protocols_http },
     { config = {
         type = "record",
         fields = {
-          { tenant_id = { type = "string", required = true, default = "-1" }, }
-          { specification_id = { type = "string", required = true, default = "oas-id" }, }
+          { tenant_id = { type = "string", required = true, default = "-1" }, },
+          { specification_id = { type = "string", required = true, default = "oas-id" }, },
           { environment = { type = "string", required = true, default = "production" }, }
         },
         entity_checks = {
