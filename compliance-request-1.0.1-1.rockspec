@@ -1,5 +1,5 @@
-package = "compliance"
-version = "1.0.2-1"
+package = "compliance-request"
+version = "1.0.1-1"
 
 source = {
     url = "*** please add URL for source tarball, zip or repository here ***"
@@ -18,7 +18,7 @@ dependencies = {
 build = {
     type = "builtin",
     modules = {
-        handler = "kong/plugins/compliance/handler.lua",
-        schema = "kong/plugins/compliance/schema.lua"
+        handler = "kong/plugins/compliance-request/handler.lua",
+        schema = "kong/plugins/compliance-request/schema.lua"
     }
 }

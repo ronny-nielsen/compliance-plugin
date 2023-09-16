@@ -1,5 +1,5 @@
 local typedefs = require "kong.db.schema.typedefs"
-local plugin_name = "compliance"
+local plugin_name = "compliance-request"
 
 local schema = {
   name = plugin_name,
